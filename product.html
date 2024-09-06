@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .image-slider {
+            position: relative;
+            max-width: 600px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+        }
+        .slide img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            border-radius: 3px;
+            user-select: none;
+        }
+        .prev {
+            left: 0;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .next {
+            right: 0;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .product-info {
+            text-align: center;
+            max-width: 600px;
+        }
+        .product-info h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .price {
+            font-size: 1.5em;
+            color: #27ae60;
+        }
+        .condition {
+            font-size: 1em;
+            color: #888;
+            margin: 10px 0;
+        }
+        .description {
+            font-size: 1em;
+            color: #555;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+        .home-button {
+            display: block;
+            width: 150px;
+            padding: 10px;
+            margin: 20px auto;
+            text-align: center;
+            background-color: #3498db;
+            color: #fff;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .home-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="home-button">Home</a>
+        <h1>Product Details</h1>
+        <div class="product-details">
+            <div class="image-slider">
+                <div class="slide">
+                    <img src="laptop1.jpg" alt="Laptop Image 1">
+                </div>
+                <div class="slide">
+                    <img src="laptop2.jpg" alt="Laptop Image 2">
+                </div>
+                <div class="slide">
+                    <img src="laptop3.jpg" alt="Laptop Image 3">
+                </div>
+                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            </div>
+            <div class="product-info">
+                <h2 id="product-name">Laptop Model</h2>
+                <p class="price" id="product-price">$899.99</p>
+                <p class="condition" id="product-condition">Condition: New</p>
+                <p class="description" id="product-description">This laptop features the latest technology with a high-resolution display, fast processor, and ample storage space. Ideal for both work and play, it combines performance with style. Enjoy a sleek design and powerful performance, all in one package.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Product data
+        const productData = {
+            //PC CABA DZ
+            '1': {
+                name: 'LAPTOP MICROSOFT SURFACE 3 15pouces',
+                price: '87000DA',
+                condition: 'Condition: Like New',
+                description: '➡️AMD RYZEN 5 MICROSOFT SURFACE EDITION JUSQU’À 3.7GHz BOOST\n➡️8GB DE RAM DDR4\n➡️256GB SSD DE STOCKAGE\n➡️ECRAN 15 POUCES 3K TACTILE ANTIREFLET\n➡️TRÈS BONNE AUTONOMIE DE BATTERIE\n➡️CARCASSE COMPLÈTEMENT EN METAL\n➡️FOURNIE AVEC CHARGEUR ORIGINAL\n➡️LIVRAISON DISPONIBLE POUR TOUTES LES WILAYAS',
+                images: ['1.jpg', '2.jpg', '3.jpg'],
+                link: "https://www.instagram.com/p/C-D6wuVIV_H/"
+            },
+            '2': {
+                name: 'LAPTOP MSI DELTA 15',
+                price: '129000DA',
+                condition: 'Condition: Like New',
+                description: '➡AMD RYZEN 5 5600HX 5000 SERIES 6 CORES JUSQU’À 4.2GHz BOOST\n➡16GB DE RAM DDR4 3200MHz\n➡512GB SSD DE STOCKAGE NVME\n➡DOUBLE CARTE GRAPHIQUE AMD RADEON GRAPHICS + AMD RADEON RX5500M AVEC 4GB DE MÉMOIRE DÉDIÉE GDDR6\n➡ECRAN 15.6 POUCES FULL HD ANTIREFLET NANOEDGE 144Hz\n➡EXCELLENTE AUTONOMIE DE BATTERIE\n➡FOURNIE AVEC CHARGEUR ORIGINAL',
+                images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg'],
+                link: "https://www.instagram.com/p/C_bKL-yox0O/"
+            },
+            '3': {
+                name: 'LAPTOP SAMSUNG GALAXY PRO BOOK 360',
+                price: '99500DA',
+                condition: 'Condition: New',
+                description: '➡INTEL CORE I5 1135G7 11ÈME GÉNÉRATION JUSQU’À 4.2GHz BOOST\n➡8GB DE RAM LPDDR4X 4266MHZ\n➡256GB SSD DE STOCKAGE M.2 PCIe 3.0\n➡ECRAN 15.6 POUCES FULL HD AMOLED ANTIREFLET NANOEDGE ROTATIF 360°\n➡CLAVIER LUMINEUX + FACE ID\n➡TRÈS BONNE AUTONOMIE DE BATTERIE\n➡FOURNIE AVEC CHARGEUR ORIGINAL\n➡PRIX : 99 500 DA\n➡LIVRAISON DISPONIBLE POUR TOUTES LES WILAYAS\n➡GARENTIE DE 3 MOIS',
+                images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg'],
+                link: "https://www.instagram.com/p/C-FX5IoorH-/"
+            },
+            //HAZEM TECH
+            '4': {
+                name: 'HP Elite Dragonfly g2 X360',
+                price: '$1199.99',
+                condition: 'Condition: New',
+                description: 'Top-of-the-line laptop with cutting-edge technology, a high-resolution display, and a robust build. Perfect for high-performance tasks and a premium user experience.',
+                images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'],
+                link: "https://www.instagram.com/p/C_jT535IISW"
+            },
+            '5': {
+                name: 'HP Elitebook 840 G8',
+                price: '99500DA',
+                condition: 'Condition: New',
+                description: '➡INTEL CORE I5 1135G7 11ÈME GÉNÉRATION JUSQU’À 4.2GHz BOOST\n➡8GB DE RAM LPDDR4X 4266MHZ\n➡256GB SSD DE STOCKAGE M.2 PCIe 3.0\n➡ECRAN 15.6 POUCES FULL HD AMOLED ANTIREFLET NANOEDGE ROTATIF 360°\n➡CLAVIER LUMINEUX + FACE ID\n➡TRÈS BONNE AUTONOMIE DE BATTERIE\n➡FOURNIE AVEC CHARGEUR ORIGINAL\n➡PRIX : 99 500 DA\n➡LIVRAISON DISPONIBLE POUR TOUTES LES WILAYAS\n➡GARENTIE DE 3 MOIS',
+                images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg'],
+                link: "https://www.instagram.com/p/C-WBTbuoe1s/"
+            },
+            '4': {
+                name: 'Laptop Model 4',
+                price: '$1199.99',
+                condition: 'Condition: New',
+                description: 'Top-of-the-line laptop with cutting-edge technology, a high-resolution display, and a robust build. Perfect for high-performance tasks and a premium user experience.',
+                images: ['1.jpg', '2.jpg', '3.jpg'],
+                link: "https://www.instagram.com/p/C-D6wuVIV_H/"
+            }
+        };
+
+        // Initialize slide index
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.querySelectorAll(".slide");
+            slides.forEach((slide, index) => {
+                slide.style.display = index === slideIndex ? "block" : "none";
+            });
+        }
+
+        function changeSlide(n) {
+            let slides = document.querySelectorAll(".slide");
+            slideIndex += n;
+            if (slideIndex >= slides.length) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+            showSlides();
+        }
+
+        // Fetch product number from query string
+        const params = new URLSearchParams(window.location.search);
+        const productNumber = params.get('product');
+
+        // Update product details based on product number
+        const data = productData[productNumber] || {};
+        document.getElementById('product-name').textContent = data.name || 'Product Not Found';
+        document.getElementById('product-price').textContent = data.price || 'N/A';
+        document.getElementById('product-condition').textContent = data.condition || 'N/A';
+        document.getElementById('product-description').textContent = data.description || 'The product you are looking for does not exist or has not been added yet.';
+
+        // Handle image slider
+        const slides = document.querySelectorAll(".slide");
+        slides.forEach((slide, index) => {
+            if (data.images && data.images[index]) {
+                slide.innerHTML = `<img src="${productNumber}/${data.images[index]}" alt="Laptop Image ${index + 1}">`;
+            } else {
+                slide.style.display = "none";
+            }
+        });
+        showSlides();
+    </script>
+</body>
+</html>
