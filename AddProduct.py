@@ -25,7 +25,7 @@ current_pid = input("Current Laptop ID: ")
 laptop_name = input("New Laptop's Name: ")
 laptop_cost = input("New Laptop's Cost: ")
 laptop_cond = input("New Laptop's Cond: ")
-laptop_desc = input("New Laptop's Cond: ")
+laptop_desc = input("New Laptop's Desc: ")
 laptop_imag = int(input("New Laptop's IMGs: "))
 laptop_Link = input("New Laptop's Link: ")
 
@@ -42,7 +42,7 @@ print(images_set)
 
 #Needed Strings
 add_product_syntax = f"<a href='product.html?product={current_pid}' class='card'>\n  <img src='{current_pid}/1.jpg' alt='Laptop {current_pid}'>\n    <div class='card-content'>\n        <h2>{laptop_name}</h2>\n        <p class='price'>{laptop_cost}DA</p>\n        <p class='condition'>Condition: {laptop_cond}</p>\n    </div>\n</a>"
-add_product_display = f",\n'{current_pid}': " + "{" + f"\n    name: '{laptop_name}',\n    price: '{laptop_cost}DA',\n    condition:'{laptop_cond}',\n    description: '{laptop_desc}',\n    images:'{images_set}',\n    link:'{laptop_Link}'\n" + "}"
+add_product_display = f",\n'{current_pid}': " + "{" + f"\n    name: '{laptop_name}',\n    price: '{laptop_cost}DA',\n    condition:'{laptop_cond}',\n    description: '{laptop_desc}',\n    images:{images_set},\n    link:'{laptop_Link}'\n" + "}"
 
 #Coolest Output
 print(add_product_syntax)

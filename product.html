@@ -87,6 +87,7 @@
             color: #555;
             margin-top: 20px;
             line-height: 1.6;
+            text-align: left;
         }
         .home-button {
             display: block;
@@ -150,7 +151,7 @@
                 name: 'LAPTOP MSI DELTA 15',
                 price: '129000DA',
                 condition: 'Condition: Like New',
-                description: '➡AMD RYZEN 5 5600HX 5000 SERIES 6 CORES JUSQU’À 4.2GHz BOOST\n➡16GB DE RAM DDR4 3200MHz\n➡512GB SSD DE STOCKAGE NVME\n➡DOUBLE CARTE GRAPHIQUE AMD RADEON GRAPHICS + AMD RADEON RX5500M AVEC 4GB DE MÉMOIRE DÉDIÉE GDDR6\n➡ECRAN 15.6 POUCES FULL HD ANTIREFLET NANOEDGE 144Hz\n➡EXCELLENTE AUTONOMIE DE BATTERIE\n➡FOURNIE AVEC CHARGEUR ORIGINAL',
+                description: '➡AMD RYZEN 5 5600HX 5000 SERIES 6 CORES JUSQU’À 4.2GHz BOOST\n➡16GB DE RAM DDR4 3200MHz\n➡512GB SSD DE STOCKAGE NVME\n➡DOUBLE CARTE GRAPHIQUE AMD RADEON GRAPHICS \n+ AMD RADEON RX5500M AVEC 4GB DE MÉMOIRE DÉDIÉE GDDR6\n➡ECRAN 15.6 POUCES FULL HD ANTIREFLET NANOEDGE 144Hz\n➡EXCELLENTE AUTONOMIE DE BATTERIE\n➡FOURNIE AVEC CHARGEUR ORIGINAL',
                 images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg'],
                 link: "https://www.instagram.com/p/C_bKL-yox0O/"
             },
@@ -162,23 +163,16 @@
                 images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg'],
                 link: "https://www.instagram.com/p/C-FX5IoorH-/"
             },
-            //HAZEM TECH
             '4': {
-                name: 'HP Elite Dragonfly g2 X360',
-                price: '------DA',
-                condition: 'Condition: New',
-                description: 'Top-of-the-line laptop with cutting-edge technology, a high-resolution display, and a robust build. Perfect for high-performance tasks and a premium user experience.',
-                images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'],
-                link: "https://www.instagram.com/p/C_jT535IISW"
-            },
-            '5': {
-                name: 'HP Elitebook 840 G8',
-                price: '------DA',
-                condition: 'Condition: New',
-                description: '➡INTEL CORE I5 1135G7 11ÈME GÉNÉRATION JUSQU’À 4.2GHz BOOST\n➡8GB DE RAM LPDDR4X 4266MHZ\n➡256GB SSD DE STOCKAGE M.2 PCIe 3.0\n➡ECRAN 15.6 POUCES FULL HD AMOLED ANTIREFLET NANOEDGE ROTATIF 360°\n➡CLAVIER LUMINEUX + FACE ID\n➡TRÈS BONNE AUTONOMIE DE BATTERIE\n➡FOURNIE AVEC CHARGEUR ORIGINAL\n➡PRIX : 99 500 DA\n➡LIVRAISON DISPONIBLE POUR TOUTES LES WILAYAS\n➡GARENTIE DE 3 MOIS',
-                images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg'],
-                link: "https://www.instagram.com/p/C-WBTbuoe1s/"
+                name: 'HP Victus 15',
+                price: '125000DA',
+                condition:'Good',
+                description: '➡AMD RYZEN 5 5600H 6 CORES JUSQU’À 4.2GHz BOOST\n➡16GB DE RAM DDR4 3200MHZ\n➡512GB SSD DE STOCKAGE\n➡DOUBLE CARTE GRAPHIQUE AMD RADEON GRAPHICS\n + NVIDIA GEFORCE GTX 1650 AVEC 4GB DE MÉMOIRE DÉDIÉE GDDR6\n➡ECRAN 15 POUCES FULL HD ANTIREFLET NANOEDGE 144Hz\n➡TRES BONNE AUTONOMIE DE BATTERIE\n➡FOURNIE AVEC CHARGEUR ORIGINAL',
+                images:['1.jpg', '2.jpg', '3.jpg'],
+                link:'https://www.instagram.com/p/C_rCuRVIKTc/'
             }
+            //HAZEM TECH
+            
         };
 
         // Initialize slide index
@@ -209,7 +203,7 @@
         document.getElementById('product-name').textContent = data.name || 'Product Not Found';
         document.getElementById('product-price').textContent = data.price || 'N/A';
         document.getElementById('product-condition').textContent = data.condition || 'N/A';
-        document.getElementById('product-description').textContent = data.description || 'The product you are looking for does not exist or has not been added yet.';
+        document.getElementById('product-description').innerText = data.description || 'The product you are looking for does not exist or has not been added yet.';
 
         // Handle image slider
         const slides = document.querySelectorAll(".slide");
