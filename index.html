@@ -82,9 +82,50 @@
         .about-btn:hover {
             background-color: #2980b9;
         }
+        /*Overlay*/
+        #overlay{
+            background-image: url(UI/bg.jpg);
+            background-size:cover;
+            width: 100%;
+            height: 270px;
+            margin-top: 20px;
+            padding: 20px;
+            display: flex;
+            align-content: center;
+        }
+        .o_header{
+            color: #000000;
+            margin: 0 auto;
+            width: 40%;
+            align-self: center;
+            position: relative;
+        }#o_container{
+            align-self: center;
+            align-content: center;
+            width: 80%;
+            height: 100%;
+            position: relative;
+            border: none;
+        }.o_info{
+            margin: 0 auto;
+            font-size: 24px;
+            font-weight: bolder;
+            padding-left: 50px;
+            color: #a3d5dd;
+        }
     </style>
 </head>
 <body>
+    <div id="overlay">
+        <h1 class="o_header">Welcome to LaptopOne!</h1>
+        <hr>
+        <div class="container" id="o_container">
+            <p class="o_info">Best EU Laptops on the market</p>
+            <p class="o_info">Best Prices and Choices</p>
+            <p class="o_info">Featuring Latest Technologies</p>
+            <p class="o_info">Free Delivery all over Algeria</p>
+        </div>
+    </div>
     <div class="container">
         <a href="about.html" class="about-btn">About Us</a>
         <h1>Your BEST Laptop Store</h1>
