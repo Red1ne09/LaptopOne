@@ -110,7 +110,7 @@
             background-color: #cd0c79;
             text-decoration: none;
             border-radius: 10px;
-            min-height: 30px;
+            min-height: 30 px;
         }
     </style>
 </head>
@@ -141,7 +141,6 @@
             </div>
         </div>
     </div>
-
     <script>
         // Product data
         const productData = {
@@ -214,6 +213,20 @@
             }
         });
         showSlides();
+
+        
+        var visitCount = localStorage.getItem("page_view");
+
+        // Check if page_view entry is present
+        if (visitCount) {
+        visitCount = Number(visitCount) + 1;
+        localStorage.setItem("page_view", visitCount);
+        } else {
+        visitCount = 1;
+        localStorage.setItem("page_view", 1);
+        }
+
     </script>
+    
 </body>
 </html>
