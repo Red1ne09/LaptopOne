@@ -6,76 +6,141 @@
     <title>About Us - Laptop Store</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            color: #333;
         }
-        .container {
-            width: 90%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1 {
+
+        .hero {
+            background: linear-gradient(to right, #0c1443, #1d2e39);
+            padding-bottom: 20px;
+            padding-top: 5px;
             text-align: center;
+        }
+
+        .hero h1 {
+            color: #f1c40f;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            color: white;
+            font-size: 1.2em;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #af8e0c;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .content {
+            line-height: 1.8;
+            font-size: 1.1em;
+            color: #666;
             margin-bottom: 20px;
         }
-        .content {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        p {
-            line-height: 1.6;
-            color: #666;
-        }
-        .highlight {
-            font-weight: bold;
+
+        .content strong {
             color: #27ae60;
         }
-        .instagram-link {
-            display: block;
+
+        .values {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .value-card {
+            flex: 1 1 30%;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
             text-align: center;
-            margin: 20px 0;
-            font-size: 1.2em;
-            color: #3498db;
-            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .instagram-link:hover {
-            color: #2980b9;
+
+        .value-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #af8e0c;
         }
+
+        .value-card p {
+            font-size: 1em;
+            color: #555;
+        }
+
         .back-btn {
-            display: block;
-            width: 200px;
-            margin: 20px auto;
-            padding: 10px;
-            text-align: center;
-            background-color: #3498db;
+            display: inline-block;
+            padding: 12px 25px;
+            background: #007BFF;
             color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
             font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 30px auto 0;
+            transition: background 0.3s ease;
+            text-align: center;
+            width: fit-content;
         }
+
         .back-btn:hover {
-            background-color: #2980b9;
+            background: #0056b3;
         }
     </style>
 </head>
 <body>
+    <div class="hero">
+        <h1>About Us</h1>
+        <p>Your trusted partner for high-quality laptops and unmatched customer service.</p>
+    </div>
     <div class="container">
-        <div class="content">
-            <h1>Qui-étes Nous?</h1>
-            <h3>Alors, je suis Redouane Trad. Fort de ma solide expérience en informatique.<br>Je mets mon expertise à votre service 😎<br>Cette Boutique Est Disponible Pour Toute l'Algerie 🇩🇿</h3>
-            <p>En tant que passionné d'ordinateurs portables et de technologie, j'ai soigneusement sélectionné chaque produit pour m'assurer que vous obtenez la meilleure qualité et le meilleur rapport qualité-prix. Mon objectif est de vous aider à trouver l'ordinateur portable parfait qui répond à vos besoins et à votre budget.</p>
-            <p>Bienvenues Dans <span class="highlight">Votres Meilleure Boutique des Laptops</span>! Notre Mission est de Proposer Vous Les Meilleures Choix Dés Laptops Avec Des Prix Imbattables.Que vous recherchiez les derniers modèles ou des options reconditionnées de haute qualité, nous avons ce qu'il vous faut.</p>
-            <p>En plus de nos produits, je partage également des astuces et des conseils pratiques sur les ordinateurs portables sur mon compte Instagram. N'hésitez pas à jeter un œil à mes astuces et conseils sur <a href="https://www.instagram.com/red_1ne_09" class="instagram-link">@red_1ne_09</a>.</p>
-            <p>Merci de visiter notre boutique. Si vous avez des questions ou besoin d'assistance, n'hésitez pas à nous contacter. Nous sommes là pour vous aider !</p>
-            <a href="index.html" class="back-btn">Back to Home</a>
+        <h2>Who We Are</h2>
+        <p class="content">Welcome to <strong>LaptopOne</strong>, your go-to destination for premium laptops and accessories. Founded by <strong>Redouane Trad</strong>, a seasoned expert in technology, our mission is to bring you the best laptops at unbeatable prices, tailored to your needs.</p>
+        <p class="content">We pride ourselves on providing an unparalleled shopping experience with a focus on quality, customer satisfaction, and trust. Whether you're a student, professional, or gamer, we have something for everyone.</p>
+        
+        <h2>Our Values</h2>
+        <div class="values">
+            <div class="value-card">
+                <h3>Quality</h3>
+                <p>Each laptop is carefully selected to ensure the highest standards of performance and durability.</p>
+            </div>
+            <div class="value-card">
+                <h3>Affordability</h3>
+                <p>We believe in offering competitive prices without compromising on quality or service.</p>
+            </div>
+            <div class="value-card">
+                <h3>Customer First</h3>
+                <p>Your satisfaction is our priority. We're here to assist you every step of the way.</p>
+            </div>
         </div>
+        
+        <h2>Stay Connected</h2>
+        <p class="content">Follow us on Instagram for tips, reviews, and updates: <a href="https://www.instagram.com/red_1ne_09" style="color: #3498db; text-decoration: none; font-weight: bold;">@red_1ne_09</a></p>
+        
+        <a href="index.html" class="back-btn">Back to Home</a>
     </div>
 </body>
 </html>
