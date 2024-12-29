@@ -84,16 +84,30 @@
             background-color: #2980b9;
             color:white;
         }
-        /*Overlay*/
-        #overlay {
-            background: linear-gradient(to right, #0c1443, #1d2e39); /* Sleek blue gradient */
-            padding: 20px;
+        /*Header*/
+        #Header {
+            background: linear-gradient(to right, #0c1443, #13042c); /* Sleek blue gradient */
+            padding-bottom: 15px;
             color: #fff;
             text-align: center;
-            height: max-content;
+            height: fit-content;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for elevation */
         }
-
+        .Title{
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+        .Logo {
+            margin: 0;
+            font-size: 1.8em;
+            width:100%;
+            padding-top: 15px;
+            padding-left: 1%;
+            text-align: start;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Slight shadow for depth */
+        }
+        
         hr {
             width: 50%;
             margin: 15px auto;
@@ -116,18 +130,10 @@
             margin: 0 10px;
         }
         ul li::before {
+            margin-top: 0;
             content: "👌"; /* Add a custom bullet */
             margin-right: 10px;
             font-size: 1.2em;
-        }
-        
-        .UpperHeader {
-            font-size: 2.5em;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-align: center;
-            color: #f1c40f; /* Bright gold for emphasis */
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Slight shadow for depth */
         }
 
         hr {
@@ -168,13 +174,11 @@
         }
 
         @media only screen and (max-width: 600px) {
-            .UpperHeader {
-                font-size: 28px;
-                font-weight: bold;
-                color: #f1c40f;
+            .Logo {
+                font-size: 1.2em;
             }
-            #overlay{
-                height: max-content;
+            #Header{
+                height: fit-content;
                 margin: 0 auto;
                 justify-self: center;
                 justify-content: center;
@@ -194,11 +198,13 @@
     </style>
 </head>
 <body>
-    <div id="overlay">
-        <h1 class="UpperHeader">Bienvenues Dans LaptopOne!</h1>
+    <div id="Header">
+        <div class="Title">
+            <h1 class="Logo">LAPTOP <strong>ONE</strong></h1>
+        </div>
         <hr>
         <div class="container" id="o_container">
-            <p class="o_info">La Qualité Europeéne Supérieure de 2020~2024</li>
+            <p class="o_info">Laptops De La Qualité Supérieure Europeéne</li>
             <ul>
                 <li>Services Aprés Vente</li>
                 <li>Dés Prix Imbatables</li>
@@ -210,17 +216,8 @@
     <div class="container">
         <h3>EU Products with The best Price & Quality</h3>
         <div class="grid" id="product-grid">
-
-            <a href="file:///D:/GitHub/LaptopOne/addproduct.html" class="card">
-                <img src="file:///D:/GitHub/LaptopOne/addproduct.html" alt="Name">
-                <div class="card-content">
-                    <h2>Name</h2>
-                    <p class="price">1212DA</p>
-                    <p class="condition">Condition: Used</p>
-                </div>
-            </a>
-
             
+            <p>No Products Available Right Now</p>
         </div>
     </div>
 </body>
