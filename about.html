@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Laptop Store</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -18,6 +20,8 @@
             padding-bottom: 20px;
             padding-top: 5px;
             text-align: center;
+            display: flex;
+            align-items: center;
         }
 
         .hero h1 {
@@ -56,10 +60,6 @@
             font-size: 1.1em;
             color: #666;
             margin-bottom: 20px;
-        }
-
-        .content strong {
-            color: #27ae60;
         }
 
         .values {
@@ -101,7 +101,7 @@
             text-decoration: none;
             border-radius: 25px;
             margin: 30px auto 0;
-            transition: background 0.3s ease;
+            transition: 0.3s ease;
             text-align: center;
             width: fit-content;
         }
@@ -109,38 +109,98 @@
         .back-btn:hover {
             background: #0056b3;
         }
+        a{
+            color: #f1c40f; 
+            text-decoration: none; 
+            font-weight: bold;
+        }
+        @media only screen and (max-width:600px) {
+            .hero h1 {
+                font-size: 1.8em;
+                padding-top: 5px;
+            }
+
+            .hero p {
+                padding-top: 15px;
+                padding-inline: 15px;
+                font-size: 1.8em;
+                line-height: 1.6;
+            }
+            .container p{
+                font-size: 1.8em;
+                text-align: center;
+            }
+            .container h2{
+                text-align: center;
+            }
+            .value-card h3{
+                font-size: 1.8em;
+            }
+            .contact{
+                width: 100%;
+                justify-content: center;
+            }
+            .contact i{
+                padding-inline: 10px;
+            }
+            .contact a{
+                font-size: .95em;
+            }
+            #Contacts{
+                text-align: start;
+            }
+        }
     </style>
 </head>
-<body>
-    <div class="hero">
-        <h1>About Us</h1>
-        <p>Your trusted partner for high-quality laptops and unmatched customer service.</p>
-    </div>
-    <div class="container">
-        <h2>Who We Are</h2>
-        <p class="content">Welcome to <strong>LaptopOne</strong>, your go-to destination for premium laptops and accessories. Founded by <strong>Redouane Trad</strong>, a seasoned expert in technology, our mission is to bring you the best laptops at unbeatable prices, tailored to your needs.</p>
-        <p class="content">We pride ourselves on providing an unparalleled shopping experience with a focus on quality, customer satisfaction, and trust. Whether you're a student, professional, or gamer, we have something for everyone.</p>
-        
-        <h2>Our Values</h2>
-        <div class="values">
-            <div class="value-card">
-                <h3>Quality</h3>
-                <p>Each laptop is carefully selected to ensure the highest standards of performance and durability.</p>
-            </div>
-            <div class="value-card">
-                <h3>Affordability</h3>
-                <p>We believe in offering competitive prices without compromising on quality or service.</p>
-            </div>
-            <div class="value-card">
-                <h3>Customer First</h3>
-                <p>Your satisfaction is our priority. We're here to assist you every step of the way.</p>
-            </div>
+    <body>
+        <div class="hero">
+            <p>LAPTOP<strong> ONE</strong></p>
+            <h1>À Propos</h1>
         </div>
-        
-        <h2>Stay Connected</h2>
-        <p class="content">Follow us on Instagram for tips, reviews, and updates: <a href="https://www.instagram.com/red_1ne_09" style="color: #3498db; text-decoration: none; font-weight: bold;">@red_1ne_09</a></p>
-        
-        <a href="index.html" class="back-btn">Back to Home</a>
-    </div>
-</body>
+        <div class="container">
+            <h2>Qui Nous Sommes</h2>
+            <p class="content">Bienvenue chez <strong>LaptopOne</strong>, votre destination incontournable pour des ordinateurs portables.<br><br>Fondé par <strong>Redouane Trad</strong>, un expert chevronné en technologie, notre mission est de vous offrir les meilleurs ordinateurs portables à des prix imbattables, adaptés à vos besoins.</p>
+            <p class="content">Nous sommes fiers de vous offrir une expérience d'achat sans pareille, axée sur la qualité, la satisfaction client et la confiance. Que vous soyez étudiant, professionnel ou gamer;<br><strong> Nous avons ce qu'il vous faut.</strong></p>
+            
+            <h2>Nos Valeurs</h2>
+            <div class="values">
+                <div class="value-card">
+                    <h3>Qualité</h3>
+                    <p>Europeéne Originale.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Accessibilité</h3>
+                    <p>Prix Compétitifs.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Client Avant Tout</h3>
+                    <p>Votre satisfaction est notre priorité. Nous sommes là pour vous accompagner à chaque étape.</p>
+                </div>
+            </div>
+            
+            <h2 id="Contacts">Contactez-Nous</h2>
+            <div class="contact" style="font-size: 16px;">
+                <p class="content">
+                    <span style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <i class="fab fa-instagram" style="color: #E4405F; margin-right: 8px;"></i>
+                        <a href="https://www.instagram.com/red_1ne_09" style="color: #555; text-decoration: none; font-weight: bold;">@red_1ne_09</a>
+                    </span>
+                    <span style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <i class="fas fa-envelope" style="color: #EA4335; margin-right: 8px;"></i>
+                        <a href="mailto:contact@laptopone.com" style="color: #555; text-decoration: none; font-weight: bold;">contact@laptopone.com</a>
+                    </span>
+                    <span style="display: flex; align-items: center;">
+                        <i class="fas fa-phone" style="color: #34A853; margin-right: 8px;"></i>
+                        <a style="color: #555; text-decoration: none; font-weight: bold;">0X XX XX XX XX</a>
+                    </span>
+                    <span>
+                        <p style="text-align: start;"><small><small>Le numéro de mobile est accessible dans l'e-mail. <br>Envoyez-nous vos messages à cet endroit.</small></small></p>
+                    </span>
+                </p>
+            </div>
+
+            <a href="index.html" class="back-btn">Retour à l'accueil</a>
+        </div>
+    </body>
 </html>
+
