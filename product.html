@@ -89,28 +89,79 @@
             line-height: 1.6;
             text-align: left;
         }
-        .home-button {
-            display: block;
-            width: 150px;
-            padding: 10px;
-            margin: 20px auto;
+        .contact-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-width: 600px;
             text-align: center;
-            background-color: #3498db;
-            color: #fff;
+        }
+        .contact-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .contact-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
             font-size: 1em;
-            font-weight: bold;
+            color: #fff;
             border-radius: 5px;
             text-decoration: none;
             transition: background-color 0.3s ease;
         }
-        .home-button:hover {
-            background-color: #2980b9;
-        }#ig_link{
+        .contact-buttons .instagram {
+            background-color: #cd486b;
             color: #fff;
-            background-color: #cd0c79;
-            text-decoration: none;
-            border-radius: 10px;
-            min-height: 30 px;
+        }
+
+        .contact-buttons .instagram:hover {
+            background-color: #b93f5f;
+        }
+
+        .contact-buttons .whatsapp {
+            background-color: #25d366;
+        }
+        .contact-buttons .whatsapp:hover {
+            background-color: #1ebe5b;
+        }
+        .contact-buttons .email {
+            background-color: #3498db;
+        }
+        .contact-buttons .email:hover {
+            background-color: #2980b9;
+        }
+        .contact-form {
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .contact-form button {
+            background-color: #3498db;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .contact-form button:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
@@ -120,7 +171,6 @@
         <h1>Product Details</h1>
         <div class="product-details">
             <div class="image-slider" id="image-slider">
-                <!-- Images will be dynamically inserted here -->
                 <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
                 <a class="next" onclick="changeSlide(1)">&#10095;</a>
             </div>
@@ -131,14 +181,29 @@
                 <p class="description" id="product-description">
                     This laptop features the latest technology with a high-resolution display, fast processor, and ample storage space.
                 </p>
-                <h2 id="ig-link">
-                    <a id="ig-link" href="#">Contact me for more</a>
-                </h2>
             </div>
         </div>
+        
+        <div class="contact-section">
+            <h2>Contact the Seller</h2>
+            <div class="contact-buttons">
+                <a href="https://wa.me/1234567890" class="whatsapp" target="_blank">WhatsApp</a>
+                <a href="mailto:seller@example.com" class="email" target="_blank">Email</a>
+                <a href="https://www.instagram.com/red_1ne_09/" class="instagram" target="_blank">Instagram</a>
+            </div>
+            
+            <form class="contact-form" action="https://formspree.io/f/xovvkbko" method="POST">
+                <input type="hidden" name="product_id" id="product-id" value="default_id">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            
+        </div>
     </div>
+
     <script>
-        // Product data
         const productData = {
             '1': {
                 name: 'ASUS ROG Strix G17',
@@ -149,41 +214,32 @@
                     'https://deystore.dz/wp-content/uploads/2024/12/ROG-1.jpg',
                     'https://deystore.dz/wp-content/uploads/2024/12/ROG-2.jpg',
                     'https://deystore.dz/wp-content/uploads/2024/12/ROG-3.jpg'
-                ],
-                link: 'https://deystore.dz/produit/laptop-asus-rog-strix-g17-amd-ryzen-9-7940hx-16gb-512ssd-4060-8gb-17/'
+                ]
             }
         };
 
-        // Initialize slide index
         let slideIndex = 0;
 
-        // Fetch product number from query string
         const params = new URLSearchParams(window.location.search);
         const productNumber = params.get('product');
 
-        // Fetch product data
         const data = productData[productNumber] || {};
-
-        // Update product details
         document.getElementById('product-name').textContent = data.name || 'Product Not Found';
         document.getElementById('product-price').textContent = data.price || 'N/A';
         document.getElementById('product-condition').textContent = data.condition || 'N/A';
-        document.getElementById('product-description').innerText = data.description || 'The product you are looking for does not exist or has not been added yet.';
-        document.getElementById('ig-link').href = data.link || '#';
+        document.getElementById('product-description').innerText = data.description || 'No description available.';
 
-        // Dynamically generate image slides
         const imageSlider = document.getElementById('image-slider');
         if (data.images && data.images.length > 0) {
             data.images.forEach((imageUrl, index) => {
                 const slideDiv = document.createElement('div');
                 slideDiv.className = 'slide';
-                slideDiv.style.display = index === 0 ? 'block' : 'none'; // Show the first slide initially
+                slideDiv.style.display = index === 0 ? 'block' : 'none';
                 slideDiv.innerHTML = `<img src="${imageUrl}" alt="Laptop Image ${index + 1}">`;
                 imageSlider.insertBefore(slideDiv, imageSlider.querySelector('.next'));
             });
         }
 
-        // Show slides
         function showSlides() {
             const slides = document.querySelectorAll('.slide');
             slides.forEach((slide, index) => {
@@ -191,7 +247,6 @@
             });
         }
 
-        // Change slides
         function changeSlide(n) {
             const slides = document.querySelectorAll('.slide');
             slideIndex += n;
@@ -200,8 +255,27 @@
             showSlides();
         }
 
-        // Initialize the slider
         showSlides();
+
+        function sendMessage(event) {
+            event.preventDefault();
+            const name = document.getElementById('user-name').value;
+            const email = document.getElementById('user-email').value;
+            const message = document.getElementById('user-message').value;
+
+            alert(`Message sent! Name: ${name}, Email: ${email}, Message: ${message}`);
+        }
+
+        function ChangeDefaultID(){
+            // Example: Get product ID from URL query parameters
+            const parameters = new URLSearchParams(window.location.search);
+            const productId = parameters.get('product') || 'default_id';
+    
+            // Set the product ID in the hidden input field
+            document.getElementById('product-id').value = productId;
+        }
+        ChangeDefaultID();
+
     </script>
 </body>
 </html>
