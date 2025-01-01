@@ -119,16 +119,8 @@
         <a href="index.html" class="home-button">Home</a>
         <h1>Product Details</h1>
         <div class="product-details">
-            <div class="image-slider">
-                <div class="slide">
-                    <img src="laptop1.jpg" alt="Laptop Image 1">
-                </div>
-                <div class="slide">
-                    <img src="laptop2.jpg" alt="Laptop Image 2">
-                </div>
-                <div class="slide">
-                    <img src="laptop3.jpg" alt="Laptop Image 3">
-                </div>
+            <div class="image-slider" id="image-slider">
+                <!-- Images will be dynamically inserted here -->
                 <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
                 <a class="next" onclick="changeSlide(1)">&#10095;</a>
             </div>
@@ -136,58 +128,80 @@
                 <h2 id="product-name">Laptop Model</h2>
                 <p class="price" id="product-price">$899.99</p>
                 <p class="condition" id="product-condition">Condition: New</p>
-                <p class="description" id="product-description">This laptop features the latest technology with a high-resolution display, fast processor, and ample storage space. Ideal for both work and play, it combines performance with style. Enjoy a sleek design and powerful performance, all in one package.</p>
-                <h2 id="ig_link"><a id="ig_link" href="https://www.instagram.com/red_1ne_09/"> Contact me @red_1ne_09 For More.</a></h2>
+                <p class="description" id="product-description">
+                    This laptop features the latest technology with a high-resolution display, fast processor, and ample storage space.
+                </p>
+                <h2 id="ig-link">
+                    <a id="ig-link" href="#">Contact me for more</a>
+                </h2>
             </div>
         </div>
     </div>
     <script>
         // Product data
         const productData = {
-            
+            '1': {
+                name: 'ASUS ROG Strix G17',
+                price: '335000DA',
+                condition: 'Condition: New',
+                description: `This ASUS ROG laptop features a Ryzen 9 processor, powerful graphics, and a sleek design.`,
+                images: [
+                    'https://deystore.dz/wp-content/uploads/2024/12/ROG-1.jpg',
+                    'https://deystore.dz/wp-content/uploads/2024/12/ROG-2.jpg',
+                    'https://deystore.dz/wp-content/uploads/2024/12/ROG-3.jpg'
+                ],
+                link: 'https://deystore.dz/produit/laptop-asus-rog-strix-g17-amd-ryzen-9-7940hx-16gb-512ssd-4060-8gb-17/'
+            }
         };
 
         // Initialize slide index
         let slideIndex = 0;
-        showSlides();
 
-        function showSlides() {
-            let slides = document.querySelectorAll(".slide");
-            slides.forEach((slide, index) => {
-                slide.style.display = index === slideIndex ? "block" : "none";
+        // Fetch product number from query string
+        const params = new URLSearchParams(window.location.search);
+        const productNumber = params.get('product');
+
+        // Fetch product data
+        const data = productData[productNumber] || {};
+
+        // Update product details
+        document.getElementById('product-name').textContent = data.name || 'Product Not Found';
+        document.getElementById('product-price').textContent = data.price || 'N/A';
+        document.getElementById('product-condition').textContent = data.condition || 'N/A';
+        document.getElementById('product-description').innerText = data.description || 'The product you are looking for does not exist or has not been added yet.';
+        document.getElementById('ig-link').href = data.link || '#';
+
+        // Dynamically generate image slides
+        const imageSlider = document.getElementById('image-slider');
+        if (data.images && data.images.length > 0) {
+            data.images.forEach((imageUrl, index) => {
+                const slideDiv = document.createElement('div');
+                slideDiv.className = 'slide';
+                slideDiv.style.display = index === 0 ? 'block' : 'none'; // Show the first slide initially
+                slideDiv.innerHTML = `<img src="${imageUrl}" alt="Laptop Image ${index + 1}">`;
+                imageSlider.insertBefore(slideDiv, imageSlider.querySelector('.next'));
             });
         }
 
+        // Show slides
+        function showSlides() {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach((slide, index) => {
+                slide.style.display = index === slideIndex ? 'block' : 'none';
+            });
+        }
+
+        // Change slides
         function changeSlide(n) {
-            let slides = document.querySelectorAll(".slide");
+            const slides = document.querySelectorAll('.slide');
             slideIndex += n;
             if (slideIndex >= slides.length) slideIndex = 0;
             if (slideIndex < 0) slideIndex = slides.length - 1;
             showSlides();
         }
 
-        // Fetch product number from query string
-        const params = new URLSearchParams(window.location.search);
-        const productNumber = params.get('product');
-
-        // Update product details based on product number
-        const data = productData[productNumber] || {};
-        document.getElementById('product-name').textContent = data.name || 'Product Not Found';
-        document.getElementById('product-price').textContent = data.price || 'N/A';
-        document.getElementById('product-condition').textContent = data.condition || 'N/A';
-        document.getElementById('product-description').innerText = data.description || 'The product you are looking for does not exist or has not been added yet.';
-
-        // Handle image slider
-        const slides = document.querySelectorAll(".slide");
-        slides.forEach((slide, index) => {
-            if (data.images && data.images[index]) {
-                slide.innerHTML = `<img src="${productNumber}/${data.images[index]}" alt="Laptop Image ${index + 1}">`;
-            } else {
-                slide.style.display = "none";
-            }
-        });
+        // Initialize the slider
         showSlides();
     </script>
-    
 </body>
 </html>
