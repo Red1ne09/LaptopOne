@@ -11,8 +11,39 @@
             padding: 0;
             background-color: #f4f4f4;
         }
+        /*Header*/
+        #Header {
+            background: linear-gradient(to right, #0c1443, #13042c); /* Sleek blue gradient */
+            color: #fff;
+            text-align: center;
+            height: fit-content;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for elevation */
+        }
+        .Title{
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+        .Logo {
+            margin: 0;
+            font-size: 1.8em;
+            width:100%;
+            padding-top: 15px;
+            padding-left: 1%;
+            text-align: start;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Slight shadow for depth */
+        }
+
         .home-button{
             margin: 0 auto;
+            margin-right: 1%;
+            margin-top: 2%;
+            padding: 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 900;
+            color: #0c1443;
+            background-color: white;
         }
         .container {
             width: 90%;
@@ -172,8 +203,14 @@
     </style>
 </head>
 <body>
+    <div id="Header">
+        <div class="Title">
+            <h1 class="Logo">LAPTOP <strong>ONE</strong></h1>
+            <a href="index.html" class="home-button">Home</a>
+        </div>
+        <hr>
+    </div>
     <div class="container">
-        <a href="index.html" class="home-button">Home</a>
         <h1>Product Details</h1>
         <div class="product-details">
             <div class="image-slider" id="image-slider">
