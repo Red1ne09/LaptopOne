@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+    <div id="Header">
+        <div class="Title">
+            <h1 class="Logo">LAPTOP <strong>ONE</strong></h1>
+            <a href="../index.html" class="home-button">Acceuil</a>
+        </div>
+        <hr>
+    </div>
+    <div class="container">
+        <h1>Product Details</h1>
+        <div class="product-details">
+            <div class="image-slider" id="image-slider">
+                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            </div>
+            <div class="product-info">
+                <h2 id="product-name">Laptop Model</h2>
+                <p class="price" id="product-price">$899.99</p>
+                <p class="condition" id="product-condition">Condition: New</p>
+                <p class="description" id="product-description">
+                    This laptop features the latest technology with a high-resolution display, fast processor, and ample storage space.
+                </p>
+            </div>
+        </div>
+        
+        <div class="contact-section">
+            <h2>Contactez le Vendeur</h2>
+            <div class="contact-buttons">
+                <a href="https://wa.me/0662673530" class="whatsapp" target="_blank">WhatsApp</a>
+                <a href="https://www.instagram.com/red_1ne_09/" class="instagram" target="_blank">Instagram</a>
+            </div>
+            
+            <form class="contact-form" action="https://formspree.io/f/xovvkbko" method="POST">
+                <input type="hidden" name="product_id" id="product-id" value="default_id">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="number" name="number" placeholder="Your Phone Number" required>
+                <input type="email" name="email" placeholder="Your Email (Optionnal)">
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Envoyer Le Message</button>
+            </form>
+            
+        </div>
+    </div>
+
+    <script>
+        const productData = {
+            '1': {
+                name: 'ASUS ROG Strix G17',
+                price: '335000DA',
+                condition: 'Condition: New',
+                description: `This ASUS ROG laptop features a Ryzen 9 processor, powerful graphics, and a sleek design.`,
+                images: [
+                    'https://deystore.dz/wp-content/uploads/2024/12/ROG-1.jpg',
+                    'https://deystore.dz/wp-content/uploads/2024/12/ROG-2.jpg',
+                    'https://deystore.dz/wp-content/uploads/2024/12/ROG-3.jpg'
+                ]
+            }
+        };
+
+        let slideIndex = 0;
+
+        const params = new URLSearchParams(window.location.search);
+        const productNumber = params.get('product');
+
+        const data = productData[productNumber] || {};
+        document.getElementById('product-name').textContent = data.name || 'Product Not Found';
+        document.getElementById('product-price').textContent = data.price || 'N/A';
+        document.getElementById('product-condition').textContent = data.condition || 'N/A';
+        document.getElementById('product-description').innerText = data.description || 'No description available.';
+
+        const imageSlider = document.getElementById('image-slider');
+        if (data.images && data.images.length > 0) {
+            data.images.forEach((imageUrl, index) => {
+                const slideDiv = document.createElement('div');
+                slideDiv.className = 'slide';
+                slideDiv.style.display = index === 0 ? 'block' : 'none';
+                slideDiv.innerHTML = `<img src="${imageUrl}" alt="Laptop Image ${index + 1}">`;
+                imageSlider.insertBefore(slideDiv, imageSlider.querySelector('.next'));
+            });
+        }
+
+        function showSlides() {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach((slide, index) => {
+                slide.style.display = index === slideIndex ? 'block' : 'none';
+            });
+        }
+
+        function changeSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            slideIndex += n;
+            if (slideIndex >= slides.length) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+            showSlides();
+        }
+
+        showSlides();
+
+        function sendMessage(event) {
+            event.preventDefault();
+            const name = document.getElementById('user-name').value;
+            const email = document.getElementById('user-email').value;
+            const message = document.getElementById('user-message').value;
+            const number = document.getElementById('user-number').value;
+
+            alert(`Message sent! Name: ${name}, Email: ${email}, Message: ${message}, Number: ${number}`);
+        }
+
+        function ChangeDefaultID(){
+            // Example: Get product ID from URL query parameters
+            const parameters = new URLSearchParams(window.location.search);
+            const productId = parameters.get('product') || 'default_id';
+    
+            // Set the product ID in the hidden input field
+            document.getElementById('product-id').value = productId;
+        }
+        ChangeDefaultID();
+
+    </script>
+</body>
+</html>
