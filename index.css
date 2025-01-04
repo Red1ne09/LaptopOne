@@ -9,7 +9,6 @@ body {
     position:relative;
     width: 90%;
     margin: 0 auto;
-    padding: 20px;
 }
 h3 {
     text-align: center;
@@ -139,7 +138,7 @@ hr {
 
 #hero {
     background: rgba(255, 255, 255, 0.1); /* Subtle light background */
-    padding: 20px 30px;
+    padding-block: 30px;
     width: 100%;
     height: fit-content;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Add depth */
