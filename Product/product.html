@@ -108,11 +108,10 @@
         function sendMessage(event) {
             event.preventDefault();
             const name = document.getElementById('user-name').value;
-            const email = document.getElementById('user-email').value;
             const message = document.getElementById('user-message').value;
             const number = document.getElementById('user-number').value;
 
-            alert(`Message sent! Name: ${name}, Email: ${email}, Message: ${message}, Number: ${number}`);
+            alert(`Message sent! Name: ${name}, Message: ${message}, Number: ${number}`);
         }
 
         function ChangeDefaultID(){
